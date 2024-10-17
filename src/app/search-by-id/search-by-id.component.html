@@ -1,0 +1,19 @@
+<form>
+  <h5 class="text-sm font-semibold text-gray-900 mb-2">Search your Pokemon</h5>
+  <div class="flex flex-col items-center justify-center">
+    <div class="flex mb-2.5">
+      <input [(ngModel)]="id" placeholder="Bob" class="w-64 h-10 border border-gray-300 rounded mr-2.5" name="titi" />
+      <select [(ngModel)]="selected" name="titi1" class="w-64 h-10 border border-gray-300 rounded mr-2.5">
+        <option>Select a Pokemon</option>
+        <option [ngValue]="pokemon" *ngFor="let pokemon of pokemons | filterPokemonPipe : 'name' : id">
+          {{ pokemon.name }}
+        </option>
+      </select>
+      <button class="w-64 h-10 bg-blue-500 text-white rounded mr-2.5" (click)="codeToExecute()">
+        Search
+      </button>
+    </div>
+  </div>
+</form>
+
+<app-info-display *ngIf="selectedPokemon" [selectedPokemon]="selectedPokemon"></app-info-display>
