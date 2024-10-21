@@ -1,4 +1,4 @@
-#Pokédex AngularJS
+# Pokédex AngularJS
 
 Application développée dans le contexte d'un TP de Web Engineering (Master 1 IL)
 
