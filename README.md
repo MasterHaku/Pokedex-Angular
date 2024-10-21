@@ -1,0 +1,2 @@
+# Pokedex-Angular
+Pokédex Angular
