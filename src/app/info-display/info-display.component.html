@@ -1,0 +1,29 @@
+<div class="flex flex-col items-center">
+    
+    <img [src]="selectedPokemon?.url" alt="{{selectedPokemon?.name}}" class="mb-4 scale-[2]">
+    <h2 class="text-center font-mono font-light text-base uppercase">{{selectedPokemon?.name}}</h2>
+  
+    <div class="flex justify-around w-full max-w-3xl">
+        <div class="flex flex-col items-start">
+          <h3 class="font-bold text-base mb-2 text-center">Abilities</h3>
+          <mat-list class="flex justify-center">
+            <mat-list-item *ngFor="let ab of selectedPokemon?.abilities" class="text-center">
+              {{ ab.ability.name }}
+            </mat-list-item>
+          </mat-list>
+        </div>
+      
+        <div class="flex flex-col items-start">
+          <h3 class="font-bold text-base mb-2">Physical Specs</h3>
+          <mat-list>
+            <mat-list-item class="flex justify-between w-full">
+              <span>Weight:</span>
+              <span>{{ selectedPokemon?.weight }}</span>
+            </mat-list-item>
+            <mat-list-item class="flex justify-between w-full">
+              <span>Height:</span>
+              <span>{{ selectedPokemon?.height }}</span>
+            </mat-list-item>
+          </mat-list>
+        </div>
+      </div>
