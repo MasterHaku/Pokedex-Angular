@@ -38,6 +38,7 @@ export class SearchByIdComponent implements OnInit{
         if(index){
           this.selectedPokemon  =new Pokemon(index,e2.name, e2.abilities, e2.weight, e2.height,e2.sprites.front_default);
           this.pokemons[index] = this.selectedPokemon
+          console.log(this.selectedPokemon)
           
         }else{
           console.log("No ID")
