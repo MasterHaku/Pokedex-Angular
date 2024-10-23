@@ -10,6 +10,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { HttpClientModule } from '@angular/common/http';
 import { InfoDisplayComponent } from './info-display/info-display.component';
 import { MatActionList, MatList, MatListModule } from '@angular/material/list';
+import { AllPokeComponent } from './all-poke/all-poke.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { MatActionList, MatList, MatListModule } from '@angular/material/list';
     SearchByIdComponent,
     FilterPokemonPipePipe,
     InfoDisplayComponent,
+    AllPokeComponent,
   ],
   imports: [
     BrowserModule,

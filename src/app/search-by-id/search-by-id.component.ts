@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, SimpleChanges } from '@angular/core';
 import { Pokemon } from '../pokemon';
 import { ApiLinkService } from '../api-link.service';
 import { firstValueFrom } from 'rxjs';
@@ -7,46 +7,60 @@ import { firstValueFrom } from 'rxjs';
   selector: 'app-search-by-id',
   templateUrl: './search-by-id.component.html',
   styleUrl: './search-by-id.component.css',
-  
+
 })
-export class SearchByIdComponent implements OnInit{
+export class SearchByIdComponent {
+
+  @Input()
+  pokemons: Pokemon[] = [];
+
+  @Input()
+  selectedPokemonClick?: number
+
   id: string = '';
   pokeSelect?: Pokemon;
-  pokemons: Pokemon[] =[];
   selected?: Pokemon;
-  selectedPokemon?:Pokemon;
+  selectedPokemon?: Pokemon;
 
-  constructor(private apiLink:ApiLinkService){
-  }
-  ngOnInit(): void {
-    this.apiLink.getPokemons().subscribe(e=> {
-      this.pokemons= []
-      console.log(e.results)
-      e.results.forEach((e1,index)=> {
-        this.pokemons.push(new Pokemon(index+1,e1.name,[],0,0,""))
-      })
-    })
-    this.apiLink.getPokemons().subscribe(e=>{console.log(e)})
+
+
+  constructor(private apiLink: ApiLinkService) {
   }
 
 
 
-  codeToExecute(){
-    if(this.selected){
-      this.apiLink.getPokemonByID(this.selected?.id).subscribe(e2=> {
-        let index = this.selected?.id
-        if(index){
-          this.selectedPokemon  =new Pokemon(index,e2.name, e2.abilities, e2.weight, e2.height,e2.sprites.front_default);
-          this.pokemons[index] = this.selectedPokemon
-          console.log(this.selectedPokemon)
-          
-        }else{
-          console.log("No ID")
-        }
-        
-
-      })
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['selectedPokemonClick']) {
+      console.log(changes['selectedPokemonClick'].currentValue);
+      this.codeToExecute(changes['selectedPokemonClick'].currentValue);
+    }
+  }
+  codeToExecute(id?: number) {
+    if (this.selected) {
+      this.performRequest(this.selected.id)
+      this.selected=undefined;
+    } else {
+      if (id) {
+        this.performRequest(id)
+      }
     };
-    
-}
+  };
+
+  performRequest(id:number){
+    this.apiLink.getPokemonByID(id).subscribe(e2 => {
+      let index = id
+      if (index) {
+        this.selectedPokemon = new Pokemon(index, e2.name, e2.abilities, e2.weight, e2.height, e2.sprites.front_default, e2.types);
+        this.pokemons[index] = this.selectedPokemon
+      } else {
+        console.log("No ID")
+      }
+
+
+    })
+  }
+
+
+
+
 }

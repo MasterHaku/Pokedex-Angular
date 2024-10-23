@@ -1,29 +1,55 @@
-<div class="flex flex-col items-center">
-    
-    <img [src]="selectedPokemon?.url" alt="{{selectedPokemon?.name}}" class="mb-4 scale-[2]">
-    <h2 class="text-center font-mono font-light text-base uppercase">{{selectedPokemon?.name}}</h2>
-  
-    <div class="flex justify-around w-full max-w-3xl">
-        <div class="flex flex-col items-start">
-          <h3 class="font-bold text-base mb-2 text-center">Abilities</h3>
-          <mat-list class="flex justify-center">
-            <mat-list-item *ngFor="let ab of selectedPokemon?.abilities" class="text-center">
-              {{ ab.ability.name }}
-            </mat-list-item>
-          </mat-list>
-        </div>
+<div class="max-w-md m-4">
+  <div class="border border-gray-300 rounded-lg p-4 mb-4 text-center"> <!-- Cadre pour l'image et le nom -->
+    <img [src]="selectedPokemon?.url" alt="{{selectedPokemon?.name}}" class="mb-2 scale-[1.5] mx-auto">
+    <h4 class="font-mono font-light text-base uppercase">{{selectedPokemon?.name}}</h4>
+  </div>
+
+  <div class="border border-gray-300 rounded-lg p-4"> <!-- Cadre pour les spécifications -->
+    <div class="flex justify-between"> <!-- Conteneur flex pour aligner les sections côte à côte -->
       
-        <div class="flex flex-col items-start">
-          <h3 class="font-bold text-base mb-2">Physical Specs</h3>
-          <mat-list>
-            <mat-list-item class="flex justify-between w-full">
-              <span>Weight:</span>
-              <span>{{ selectedPokemon?.weight }}</span>
-            </mat-list-item>
-            <mat-list-item class="flex justify-between w-full">
-              <span>Height:</span>
-              <span>{{ selectedPokemon?.height }}</span>
-            </mat-list-item>
-          </mat-list>
-        </div>
+      <div class="flex flex-col items-center w-1/3 border-r border-gray-300 pr-4"> <!-- Séparation à droite -->
+        <h6 class="font-bold text-lg mb-2 text-center">Abilities</h6>
+        <mat-list class="flex flex-col items-center"> <!-- Centré ici -->
+          <mat-list-item *ngFor="let ab of selectedPokemon?.abilities" class="text-center">
+            {{ ab.ability.name }}
+          </mat-list-item>
+        </mat-list>
       </div>
+      
+      <div class="flex flex-col items-center w-1/3 border-r border-gray-300 px-4"> <!-- Séparation à droite -->
+        <h6 class="font-bold text-lg mb-2 text-center">Specs</h6>
+        <mat-list class="flex flex-col items-center"> <!-- Centré ici -->
+          <mat-list-item class="flex justify-between w-full">
+            <span>ID:</span>
+            <span> {{ selectedPokemon?.id }}</span>
+          </mat-list-item>
+
+          <mat-list-item class="flex justify-between w-full">
+            <span>Weight:</span>
+            <span> {{ selectedPokemon?.weight }}</span>
+          </mat-list-item>
+          <mat-list-item class="flex justify-between w-full">
+            <span>Height:</span>
+            <span> {{ selectedPokemon?.height }}</span>
+          </mat-list-item>
+        </mat-list>
+      </div>
+
+      <div class="flex flex-col items-center w-1/3"> <!-- Pas de séparation à droite -->
+        <h6 class="font-bold text-lg mb-2 text-center">Types</h6>
+        <mat-list class="flex flex-col items-center"> <!-- Centré ici -->
+          <mat-list-item *ngFor="let types of selectedPokemon?.type" class="text-center">
+            <span [ngClass]="getTypeClass(types.type.name)" class="inline-block text-white rounded-full px-3 py-1 text-sm font-semibold">
+              {{ types.type.name }}
+            </span>
+          </mat-list-item>
+        </mat-list>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<div class="max-w-md m-4 border border-gray-300 rounded-lg p-4 text-center">
+  <p class="text-lg">Pokedex</p>
+</div>

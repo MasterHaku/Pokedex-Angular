@@ -17,6 +17,7 @@ export class ApiLinkService {
     return this.http.get<PokemonType>(`${this.apiUrl}/pokemon/${id}`);
   }
 
+
   getPokemons(): Observable<ResultAllPokemon> {
     return this.http.get<ResultAllPokemon>(`${this.apiUrl}/pokemon?offset=0&limit=1025",`);
   }
