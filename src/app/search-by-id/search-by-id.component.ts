@@ -1,7 +1,6 @@
 import { Component, Input, SimpleChanges } from '@angular/core';
 import { Pokemon } from '../pokemon';
 import { ApiLinkService } from '../api-link.service';
-import { firstValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-search-by-id',
@@ -38,7 +37,8 @@ export class SearchByIdComponent {
   codeToExecute(id?: number) {
     if (this.selected) {
       this.performRequest(this.selected.id)
-      this.selected=undefined;
+      this.selected=undefined; // Efface le champs d'entrée
+      this.id=''; // Efface le champs de filtre
     } else {
       if (id) {
         this.performRequest(id)
@@ -46,6 +46,13 @@ export class SearchByIdComponent {
     };
   };
 
+
+  /**
+   * 
+   * @param id ID du pokemon a chercher
+   * 
+   * Effectue la requete de recuperation par ID et crée un Pokemon avec les données retournées
+   */
   performRequest(id:number){
     this.apiLink.getPokemonByID(id).subscribe(e2 => {
       let index = id

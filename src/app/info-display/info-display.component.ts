@@ -16,13 +16,13 @@ export class InfoDisplayComponent {
   getTypeClass(type: string): string {
     switch (type.toLowerCase()) {
       case 'fire':
-        return 'bg-red-500';
+        return 'bg-orange-500';
       case 'water':
         return 'bg-blue-500';
       case 'grass':
         return 'bg-green-500';
       case 'electric':
-        return 'bg-yellow-500';
+        return 'bg-amber-300';
       case 'psychic':
         return 'bg-purple-500';
       case 'rock':
@@ -37,6 +37,10 @@ export class InfoDisplayComponent {
         return 'bg-lime-500';
       case 'fairy':
         return 'bg-pink-400';
+        case 'ice':
+          return 'bg-cyan-300';
+          case 'ground':
+          return 'bg-amber-900';
       // Ajoute d'autres types selon besoin
       default:
         return 'bg-gray-200';

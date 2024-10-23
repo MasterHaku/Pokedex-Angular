@@ -1,18 +1,21 @@
-<div class="flex justify-start">
+<div class=" justify-start">
   <form class="max-w-md m-4 border border-gray-300 rounded-lg p-4">
-    <h5 class="text-center mb-4">Search your Pokemon</h5>
+    <h5 class="text-center mb-4">Search your Pokemon</h5> 
     <div class="flex flex-col space-y-4">
-      <div class="flex space-x-2">
-        <input [(ngModel)]="id" placeholder="Bob"
-          class="flex-1 h-10 p-2 border border-gray-300 rounded-lg shadow-sm text-sm w-full" name="titi" />
-        <select [(ngModel)]="selected" name="titi1" class="flex-1 h-10 border border-gray-300 rounded w-full">
+      <div class="flex space-x-2"> 
+        <input [(ngModel)]="id" placeholder="Filter" 
+               class="flex-1 h-10 p-2 border border-gray-300 rounded-lg shadow-sm text-sm w-full" 
+               name="titi" />
+        <select [(ngModel)]="selected" name="titi1" 
+                class="flex-1 h-10 border border-gray-300 rounded w-full">
           <option>Select a Pokemon</option>
           <option [ngValue]="pokemon" *ngFor="let pokemon of pokemons | filterPokemonPipe : 'name' : id">
             {{ pokemon.name }}
           </option>
         </select>
       </div>
-      <button class="w-full h-10 bg-blue-500 text-white rounded hover:bg-blue-600" (click)="codeToExecute()">
+      <button class="w-full h-10 bg-blue-500 text-white rounded hover:bg-blue-600" 
+              (click)="codeToExecute()">
         Search
       </button>
     </div>
@@ -20,3 +23,6 @@
 </div>
 
 <app-info-display *ngIf="selectedPokemon" [selectedPokemon]="selectedPokemon"></app-info-display>
+
+
+
