@@ -12,7 +12,11 @@ export class InfoDisplayComponent {
   selectedPokemon?: Pokemon
 
 
-
+  /**
+   * classes Tailwind CSS changeant la couleur du chip d'affichage des types du Pokemon
+   * @param {String} type 
+   * @returns 
+   */
   getTypeClass(type: string): string {
     switch (type.toLowerCase()) {
       case 'fire':
@@ -37,10 +41,10 @@ export class InfoDisplayComponent {
         return 'bg-lime-500';
       case 'fairy':
         return 'bg-pink-400';
-        case 'ice':
-          return 'bg-cyan-300';
-          case 'ground':
-          return 'bg-amber-900';
+      case 'ice':
+        return 'bg-cyan-300';
+      case 'ground':
+        return 'bg-amber-900';
       // Ajoute d'autres types selon besoin
       default:
         return 'bg-gray-200';

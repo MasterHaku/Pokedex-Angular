@@ -10,10 +10,10 @@ import { ApiLinkService } from '../api-link.service';
 })
 export class SearchByIdComponent {
 
-  @Input()
+  @Input() //Tous les pokemons
   pokemons: Pokemon[] = [];
 
-  @Input()
+  @Input() //Pokémon clické dans la mozaique
   selectedPokemonClick?: number
 
   id: string = '';
@@ -21,39 +21,41 @@ export class SearchByIdComponent {
   selected?: Pokemon;
   selectedPokemon?: Pokemon;
 
-
-
   constructor(private apiLink: ApiLinkService) {
   }
 
-
-
+  /**
+   * S'execute quand le pokemon selection est modifié
+   * @param {SimpleChanges} changes 
+   */
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['selectedPokemonClick']) {
       console.log(changes['selectedPokemonClick'].currentValue);
       this.codeToExecute(changes['selectedPokemonClick'].currentValue);
     }
   }
+
+  /**
+   * Effectue l'action d'affichage des details sur le coté gauche de la page
+   * @param {number} id 
+   */
   codeToExecute(id?: number) {
-    if (this.selected) {
+    if (this.selected) { //si le pokemon est cherché dans le champ de recherche
       this.performRequest(this.selected.id)
-      this.selected=undefined; // Efface le champs d'entrée
-      this.id=''; // Efface le champs de filtre
+      this.selected = undefined; // Efface le champs d'entrée
+      this.id = ''; // Efface le champs de filtre
     } else {
-      if (id) {
+      if (id) { //si le pokemon est cliqué
         this.performRequest(id)
       }
     };
   };
 
-
   /**
-   * 
-   * @param id ID du pokemon a chercher
-   * 
    * Effectue la requete de recuperation par ID et crée un Pokemon avec les données retournées
+   * @param {number} id ID du pokemon a chercher
    */
-  performRequest(id:number){
+  performRequest(id: number) {
     this.apiLink.getPokemonByID(id).subscribe(e2 => {
       let index = id
       if (index) {
@@ -62,12 +64,6 @@ export class SearchByIdComponent {
       } else {
         console.log("No ID")
       }
-
-
     })
   }
-
-
-
-
 }
