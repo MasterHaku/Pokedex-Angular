@@ -12,44 +12,43 @@ export class InfoDisplayComponent {
   selectedPokemon?: Pokemon
 
 
-  /**
-   * classes Tailwind CSS changeant la couleur du chip d'affichage des types du Pokemon
-   * @param {String} type 
-   * @returns 
-   */
+
+
+
+  
   getTypeClass(type: string): string {
     switch (type.toLowerCase()) {
       case 'fire':
-        return 'bg-orange-500';
+        return 'bg-orange-500 hover:animate-sparkle-fire hover:brightness-125 transition duration-300';
       case 'water':
-        return 'bg-blue-500';
+        return 'bg-blue-500 hover-sparkle hover:brightness-125 transition duration-300';
       case 'grass':
-        return 'bg-green-500';
+        return 'bg-green-500 hover-sparkle hover:brightness-125 transition duration-300';
       case 'electric':
-        return 'bg-amber-300';
+        return 'bg-amber-300 hover-sparkle hover:brightness-125 transition duration-300';
       case 'psychic':
-        return 'bg-purple-500';
+        return 'bg-purple-500 hover-sparkle hover:brightness-125 transition duration-300';
       case 'rock':
-        return 'bg-gray-300';
+        return 'bg-gray-300 hover-sparkle hover:brightness-125 transition duration-300';
       case 'flying':
-        return 'bg-blue-200';
+        return 'bg-blue-200 hover-sparkle hover:brightness-125 transition duration-300';
       case 'dark':
-        return 'bg-black';
+        return 'bg-black hover-sparkle hover:brightness-125 transition duration-300';
       case 'steel':
-        return 'bg-gray-500';
+        return 'bg-gray-500 hover-sparkle hover:brightness-125 transition duration-300';
       case 'poison':
-        return 'bg-lime-500';
+        return 'bg-lime-500 hover-sparkle hover:brightness-125 transition duration-300';
       case 'fairy':
-        return 'bg-pink-400';
+        return 'bg-pink-400 hover-sparkle hover:brightness-125 transition duration-300';
       case 'ice':
-        return 'bg-cyan-300';
+        return 'bg-cyan-300 hover-sparkle hover:brightness-125 transition duration-300';
       case 'ground':
-        return 'bg-amber-900';
-      // Ajoute d'autres types selon besoin
+        return 'bg-amber-900 hover-sparkle hover:brightness-125 transition duration-300';
       default:
-        return 'bg-gray-200';
+        return 'bg-gray-200 hover-sparkle hover:brightness-125 transition duration-300';
     }
   }
+  
 
 
 

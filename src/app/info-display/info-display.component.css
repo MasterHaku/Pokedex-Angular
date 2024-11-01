@@ -1,0 +1,27 @@
+@keyframes sparkle-fire {
+    0%, 100% {
+      box-shadow: 0 0 5px red, 0 0 10px orange, 0 0 20px yellow;
+    }
+    50% {
+      box-shadow: 0 0 20px yellow, 0 0 40px orange, 0 0 80px red;
+    }
+  }
+  
+  @keyframes sparkle-water {
+    0%, 100% {
+      box-shadow: 0 0 5px lightblue, 0 0 10px blue, 0 0 20px navy;
+    }
+    50% {
+      box-shadow: 0 0 20px blue, 0 0 40px navy, 0 0 80px lightblue;
+    }
+  }
+  
+  @keyframes sparkle-grass {
+    0%, 100% {
+      box-shadow: 0 0 5px lightgreen, 0 0 10px green, 0 0 20px darkgreen;
+    }
+    50% {
+      box-shadow: 0 0 20px green, 0 0 40px darkgreen, 0 0 80px lightgreen;
+    }
+  }
+    
