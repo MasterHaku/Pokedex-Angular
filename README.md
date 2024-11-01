@@ -1,45 +1,30 @@
-<<<<<<< HEAD
+
 # Pokédex AngularJS
 
 Application développée dans le contexte d'un TP de Web Engineering (Master 1 IL)
 
+## Utilisation de l'app
+### Pour build le projet:
+> ng build
 
-
-Pour lancer l'app:
+### Pour lancer l'app:
 > ng serve
 
+
+## Modifications
+### Ajout d'un composant:
+> ng generate component component-name
+
+### Ajout d'un autre element:
+> ng generate directive|pipe|service|class|guard|interface|enum|module
+
+## Configuration minimum souhaitée
 Attention a avoir toutes les versions (Angular/ng) a jour
-=======
-<<<<<<< HEAD
-# PokedemoHG
+> Angular CLI: 18
+> TailwindCSS: 3.4.14
+> TypeScript: 5.5.2
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.6.
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
-=======
-# Pokedex-Angular
-Pokédex Angular
->>>>>>> 12783e2 (Initial commit)
->>>>>>> master
+All rights reserved to creator
